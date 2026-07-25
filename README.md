@@ -1,1 +1,1 @@
-# EVBharat
+# Vedica
