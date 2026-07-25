@@ -2,7 +2,7 @@
 
 **Premium Himalayan Natural Spring Water — Born in the Himalayas**
 
-Official marketing website for [Vedica Spring](https://vedicaspring.com), a premium Himalayan natural spring water brand by Vedica Spring Waters Pvt. Ltd., India.
+Demo marketing website for [Vedica Spring](https://vedicaspring.com), a premium Himalayan natural spring water brand by Vedica Spring Waters Pvt. Ltd., India.
 
 ## Features
 
