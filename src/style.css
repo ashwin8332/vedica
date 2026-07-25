@@ -1,0 +1,530 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* =============================================
+   CSS CUSTOM PROPERTIES — VEDICA BRAND
+============================================= */
+:root {
+  --vedica-yellow:     #FCDC00;
+  --vedica-yellow-soft: #FFE85C;
+  --vedica-blue:       #005CAB;
+  --vedica-blue-soft:  #3A8AD1;
+  --vedica-glacial:    #A8C8DE;
+  --vedica-deep:       #0A1A2A;
+  --vedica-white:      #F7F8FB;
+  --hairline:          rgba(255, 255, 255, 0.22);
+  --sans:  'Inter Tight', system-ui, -apple-system, sans-serif;
+  --serif: 'Cormorant Garamond', Georgia, serif;
+}
+
+/* =============================================
+   BASE STYLES
+============================================= */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  @apply bg-vedica-deep text-vedica-white font-inter overflow-x-hidden m-0;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+h1, h2, h3 {
+  font-family: var(--serif);
+  font-weight: 400;
+  line-height: 1.15;
+}
+
+h4, h5, h6 {
+  font-family: var(--sans);
+}
+
+::selection {
+  background: var(--vedica-yellow);
+  color: var(--vedica-deep);
+}
+
+/* =============================================
+   TYPOGRAPHY UTILITIES
+============================================= */
+.font-serif    { font-family: var(--serif); }
+.font-sans     { font-family: var(--sans); }
+.font-montserrat { font-family: 'Montserrat', sans-serif; }
+
+.eyebrow {
+  font-family: var(--sans);
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.7);
+}
+
+.eyebrow-gold {
+  font-family: var(--sans);
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  color: var(--vedica-yellow);
+}
+
+/* =============================================
+   GLASSMORPHISM UTILITIES
+============================================= */
+.glass {
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.glass-light {
+  background: rgba(255, 255, 255, 0.65);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  box-shadow: 0 8px 32px rgba(0, 92, 171, 0.12);
+}
+
+.glass-dark {
+  background: rgba(8, 20, 36, 0.42);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  box-shadow: 0 20px 54px rgba(0, 14, 28, 0.34);
+}
+
+.glass-blue {
+  background: rgba(0, 92, 171, 0.15);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(0, 92, 171, 0.3);
+}
+
+/* =============================================
+   BUTTON STYLES
+============================================= */
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 36px;
+  background: var(--vedica-yellow);
+  color: var(--vedica-deep);
+  font-family: var(--sans);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  border: none;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.35s ease;
+  text-decoration: none;
+}
+
+.btn-primary::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(255, 255, 255, 0.25);
+  transform: translateX(-100%);
+  transition: transform 0.4s ease;
+}
+
+.btn-primary:hover::before {
+  transform: translateX(0);
+}
+
+.btn-primary:hover {
+  box-shadow: 0 0 24px rgba(252, 220, 0, 0.5);
+  transform: translateY(-1px);
+}
+
+.btn-ghost {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 13px 35px;
+  background: transparent;
+  color: #fff;
+  font-family: var(--sans);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  cursor: pointer;
+  transition: all 0.35s ease;
+  text-decoration: none;
+}
+
+.btn-ghost:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.9);
+  transform: translateY(-1px);
+}
+
+.btn-outline-blue {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 13px 35px;
+  background: transparent;
+  color: var(--vedica-blue);
+  font-family: var(--sans);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  border: 1.5px solid var(--vedica-blue);
+  cursor: pointer;
+  transition: all 0.35s ease;
+  text-decoration: none;
+}
+
+.btn-outline-blue:hover {
+  background: var(--vedica-blue);
+  color: #fff;
+  transform: translateY(-1px);
+  box-shadow: 0 0 24px rgba(0, 92, 171, 0.4);
+}
+
+/* =============================================
+   SCROLL ANIMATIONS
+============================================= */
+.fade-up {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.fade-up.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.fade-in {
+  opacity: 0;
+  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.fade-in.is-visible {
+  opacity: 1;
+}
+
+.slide-left {
+  opacity: 0;
+  transform: translateX(-40px);
+  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.slide-left.is-visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.slide-right {
+  opacity: 0;
+  transform: translateX(40px);
+  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.slide-right.is-visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* Stagger delays */
+.delay-100 { transition-delay: 100ms; }
+.delay-200 { transition-delay: 200ms; }
+.delay-300 { transition-delay: 300ms; }
+.delay-400 { transition-delay: 400ms; }
+.delay-500 { transition-delay: 500ms; }
+.delay-600 { transition-delay: 600ms; }
+
+/* =============================================
+   DIVIDERS & DECORATIVE
+============================================= */
+.rule-gold {
+  display: inline-block;
+  width: 32px;
+  height: 1px;
+  background: var(--vedica-yellow);
+}
+
+.dot-sep {
+  display: inline-block;
+  width: 3px;
+  height: 3px;
+  border-radius: 50%;
+  background: var(--vedica-yellow);
+  vertical-align: middle;
+}
+
+/* =============================================
+   PRODUCT CARD
+============================================= */
+.product-card-vedica {
+  background: rgba(255, 255, 255, 0.65);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  box-shadow: 0 8px 32px rgba(0, 92, 171, 0.12), inset 0 1px 0 rgba(255,255,255,0.5);
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s ease;
+  overflow: hidden;
+}
+
+.product-card-vedica:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 24px 48px rgba(0, 92, 171, 0.22), inset 0 1px 0 rgba(255,255,255,0.5);
+}
+
+/* =============================================
+   SECTION PATTERNS
+============================================= */
+.section-mountain {
+  background: linear-gradient(180deg,
+    #3a7aaf 0%,
+    #5790bb 10%,
+    #82acc9 20%,
+    #adc8de 30%,
+    #d9e5ef 40%,
+    #f7f8fb 50%,
+    #fdfdfd 100%
+  );
+}
+
+.section-water-light {
+  background: linear-gradient(135deg, #EAF2F8 0%, #F7F8FB 50%, #EAF2F8 100%);
+}
+
+/* =============================================
+   SHIMMER EFFECT
+============================================= */
+.shimmer-text {
+  background: linear-gradient(90deg, 
+    rgba(255,255,255,0.5) 0%, 
+    rgba(252,220,0,0.9) 50%, 
+    rgba(255,255,255,0.5) 100%
+  );
+  background-size: 200% 100%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: shimmer 3s linear infinite;
+}
+
+@keyframes shimmer {
+  0%   { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+/* =============================================
+   SCROLL INDICATOR
+============================================= */
+.scroll-cue-line {
+  width: 1px;
+  height: 44px;
+  background: linear-gradient(180deg, var(--vedica-yellow), transparent);
+  animation: scrollLine 2.6s ease-in-out infinite;
+}
+
+@keyframes scrollLine {
+  0%   { transform: scaleY(0); transform-origin: top; }
+  45%  { transform: scaleY(1); transform-origin: top; }
+  55%  { transform: scaleY(1); transform-origin: bottom; }
+  100% { transform: scaleY(0); transform-origin: bottom; }
+}
+
+/* =============================================
+   PAGE TRANSITIONS
+============================================= */
+#app {
+  transition: opacity 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* =============================================
+   LOADING
+============================================= */
+.vedica-loader {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: var(--vedica-deep);
+  transition: opacity 0.6s ease, visibility 0.6s ease;
+}
+
+.vedica-loader.hidden {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+/* =============================================
+   NAV LINK ACTIVE STATE
+============================================= */
+.nav-link.active,
+.nav-link-active {
+  color: var(--vedica-yellow) !important;
+}
+
+/* =============================================
+   CUSTOM SCROLLBAR
+============================================= */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--vedica-deep);
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, var(--vedica-blue), var(--vedica-yellow));
+  border-radius: 3px;
+}
+
+/* =============================================
+   FORM INPUTS
+============================================= */
+.vedica-input {
+  width: 100%;
+  padding: 14px 18px;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  color: #fff;
+  font-family: var(--sans);
+  font-size: 14px;
+  outline: none;
+  transition: border-color 0.3s ease, background 0.3s ease;
+  border-radius: 2px;
+}
+
+.vedica-input:focus {
+  border-color: var(--vedica-yellow);
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.vedica-input::placeholder {
+  color: rgba(255, 255, 255, 0.35);
+  font-size: 13px;
+  letter-spacing: 0.06em;
+}
+
+/* =============================================
+   CHAPTER DOTS (Hero)
+============================================= */
+.chapter-dot {
+  position: absolute;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+  background: transparent;
+  border: 0;
+  pointer-events: auto;
+}
+
+.chapter-dot .core {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--vedica-blue);
+  box-shadow: 0 0 0 1px rgba(0,92,171,0.45), 0 0 12px rgba(0,92,171,0.6);
+  transition: all 0.4s ease;
+  position: relative;
+  z-index: 3;
+}
+
+.chapter-dot .ring {
+  position: absolute;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  border: 1px solid rgba(252,220,0,0.55);
+  transition: all 0.5s cubic-bezier(0.2,0.7,0.2,1);
+}
+
+.chapter-dot .pulse {
+  position: absolute;
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+  border: 1px solid rgba(252,220,0,0.85);
+  animation: aureole 4.6s cubic-bezier(0.25,0.7,0.3,1) infinite;
+  pointer-events: none;
+}
+
+@keyframes aureole {
+  0%   { width: 10px; height: 10px; opacity: 0.85; }
+  100% { width: 64px; height: 64px; opacity: 0; }
+}
+
+.chapter-dot:hover .core {
+  box-shadow: 0 0 0 1px rgba(0,92,171,0.7), 0 0 0 6px rgba(252,220,0,0.25), 0 0 18px rgba(0,92,171,0.85);
+}
+
+.chapter-dot:hover .ring {
+  width: 32px; height: 32px;
+  border-color: rgba(252,220,0,0.95);
+}
+
+/* =============================================
+   WATER RIPPLE ANIMATION
+============================================= */
+@keyframes ripple {
+  0%   { transform: scale(1); opacity: 0.6; }
+  100% { transform: scale(2.5); opacity: 0; }
+}
+
+.ripple-circle {
+  border-radius: 50%;
+  border: 1px solid rgba(0, 92, 171, 0.5);
+  animation: ripple 3s ease-out infinite;
+}
+
+/* =============================================
+   MINERAL BAR
+============================================= */
+.mineral-bar {
+  height: 3px;
+  background: linear-gradient(90deg, var(--vedica-blue), var(--vedica-glacial));
+  border-radius: 2px;
+  transform-origin: left;
+  transform: scaleX(0);
+  transition: transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.mineral-bar.animate {
+  transform: scaleX(1);
+}
+
+/* =============================================
+   RESPONSIVE HELPERS
+============================================= */
+@media (max-width: 768px) {
+  .hide-mobile { display: none !important; }
+}
+
+@media (min-width: 769px) {
+  .hide-desktop { display: none !important; }
+}
